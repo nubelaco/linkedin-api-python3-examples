@@ -8,7 +8,7 @@ def get_access_token():
     """
     If you are
 
-    1. an approved Linkedin developer
+    1. an approved LinkedIn developer
     2. on a paid subscription to their Consumer Product
 
     You can use this function to fetch an `access_token` to access the API.

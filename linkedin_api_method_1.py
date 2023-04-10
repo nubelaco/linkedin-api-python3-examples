@@ -8,12 +8,12 @@ LINKEDIN_REDIRECT_URI = ''  # todo - fill this field up
 
 def generate_authorization_url():
     """
-    Generate an authorization URL for a user to give permission to extract his/her Linkedin Profile.
+    Generate an authorization URL for a user to give permission to extract their LinkedIn Profile.
 
-    The genereated URL will take the user to a Linkedin page for which the user will be asked to give an explicit
-    permission to share his profile with you (the application creator).
+    The genereated URL will take the user to a LinkedIn page where the user will be asked to give explicit
+    permission to share their profile with you (the application creator).
 
-    Should the user agree, he/she will be redirected to `LINKEDIN_REDIRECT_URI`.
+    Should the user agree, they will be redirected to `LINKEDIN_REDIRECT_URI`.
     In the redirect, two fields will appear in the URL parameter, namely `code` and `state`.
 
     * `state` is generated below using `secrets.token_hex(8).upper()`. This is as a form of identifier for this user.
@@ -34,7 +34,7 @@ def generate_authorization_url():
 
 def get_access_token(authorization_code):
     """
-    Given a authorization `code`, this function will return you `access_token` which can then be used to access a user's Linkedin profile.
+    Given a authorization `code`, this function will return you `access_token` which can then be used to access a user's LinkedIn profile.
     """
     LI_ACCESS_TOKEN_EXCHANGE_URL = 'https://www.linkedin.com/oauth/v2/accessToken'
     access_token = requests.post(LI_ACCESS_TOKEN_EXCHANGE_URL, params={
@@ -49,7 +49,7 @@ def get_access_token(authorization_code):
 
 def get_profile(access_token):
     """
-    Fetches the profile of a Linkedin user who has given you his permission to view his profile
+    Fetches the profile of a LinkedIn user who has given you his permission to view his profile
     """
     LI_PROFILE_API_ENDPOINT = 'https://api.linkedin.com/v2/me'
     r = requests.get(LI_PROFILE_API_ENDPOINT, headers={
